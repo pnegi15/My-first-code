@@ -1,0 +1,48 @@
+#include<iostream>
+#include<string>
+using namespace std;
+class StudentsDetails
+{
+public:
+int enrollno;
+void getDetails()
+{
+cout<<"Student Name: "<<endl;
+string student_name;
+getline(cin,student_name);
+cout<<"Enrollment No: "<<endl;
+cin>>enrollno;
+}
+};
+class Marks
+{
+public:
+int marks[5];
+void getMarks()
+{
+for (int i=0;i<5;i++)
+{
+cout<<"Marks of subject["<<i<<"]:"<<endl;
+cin>>marks[i];
+}
+}
+};
+class C: public StudentsDetails,public Marks
+{
+public:
+void total()
+{
+int tot=0;
+for (int i=0;i<5;i++)
+tot=tot+marks[i];
+cout<<"Total Marks= "<<tot;
+}
+};
+int main()
+{
+C c1;
+c1.getDetails();
+c1.getMarks();
+c1.total();
+return 0;
+}
